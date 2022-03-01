@@ -1,0 +1,127 @@
+# Modelos de Regressão
+
+ + Em muitas circunstâncias, tratamos uma variável como resposta (dependente) e outra como explicação (independente)
+ 
+ + Então, a variável Y pode ser representada por uma função de X
+ 
+ + Podemos escrever que 
+ 
+ 
+ \[
+ \Large
+ y_i = f(x_i) + \epsilon_i  
+ \]
+ 
+ + Em que: 
+ 
+   * O $y_i$ é a resposta medida na unidade i $(i = 1, 2, \cdots, n)$; 
+   
+   * O $x_i$ é a variável explicativa/regressora medida na unidade i; 
+ 
+   * O $\epsilon_i$ é o **erro** aleatório intrínseco à unidade i.   
+
+
+## Modelos lineares 
+
+ + Um modelo simples seria uma reta 
+ 
+\[
+\Large
+y_i = \beta_0 + \beta_1 \, x_i + \epsilon_i 
+\]
+
+   * Aqui o parâmetro $\beta_0$ é o intercepto, onde a reta cruza o eixo $y$
+   
+   * E o parâmetro $\beta_1$ é a inclinação (ou efeito)
+   
+  + Em Estatística, o modelo quadrático também é linear
+  
+\[
+\Large
+y_i = \beta_0 + \beta_1 \, x_i + \beta_2 \, x^2_i + \epsilon_i 
+\]
+  
+   * Mas como assim? 
+   
+      + Linear não é necessariamente "reta"; 
+      
+      + Isso significa que os parâmetros são linearmente dispostos no modelo; 
+      
+      + Ou seja, se derivarmos a função com respeito aos parâmetros, o resultado independe deles: 
+      
+\[
+\frac{\partial f}{\partial \beta_0} ~~ \mbox{não depende de} ~~ \beta_0
+\]
+      
+\[
+\frac{\partial f}{\partial \beta_1} ~~ \mbox{não depende de} ~~ \beta_1
+\]
+      
+\[
+\frac{\partial f}{\partial \beta_2} ~~ \mbox{não depende de} ~~ \beta_2
+\]
+      
+  * Quando isso ocorre, é ótimo!!! Choramos de felicidade!!! 
+  
+  **Os modelos lineares possuem propriedades excelentes**
+      
+## Modelo Linear - Forma Geral      
+
+ + Os modelos lineares podem ser descritos por: 
+ 
+\[
+\Large
+f(x_i) = \sum_{j = 0}^{p} \beta_j \,  \phi_j (x_i)
+\]
+  
+ Ou seja
+ 
+\[
+\Large
+f(x_i) = \beta_0 \,  \phi_0 (x_i) + \beta_1 \,  \phi_1 (x_i) + \cdots + \beta_p \,  \phi_p (x_i)
+\]
+ 
+Em que as funções $\phi_j$ não dependem de parâmetros livres (valores desconhecidos, a serem estimados a partir dos dados) - no caso os betas!
+ 
+  * Ao ajustar um modelo linear, temos que calcular seus $p + 1$  parâmetros livres a partir da informação dos dados.  
+ 
+## Exercícios  
+ 
+   1. Determine as funções $\phi_j$ para o modelo linear de **1º grau**: 
+   
+\[
+\Large
+y_i = \beta_0 + \beta_1 \, x_i + \epsilon_i 
+\]
+   
+   2. O modelo abaixo é linear? Explique o por quê?
+   
+\[
+\Large
+y_i = \beta_0 + \beta_1 \, e^{x_i} + \beta_2 \, \sin(10 x_i^2 \pi ) + \epsilon_i 
+\]   
+   
+   
+   3. E o que dizer do modelo de Michaelis-Menten?
+   
+\[
+\Large
+y_i = \frac{\beta_0 \,  x_i}{\beta_2 + x_i} + \epsilon_i 
+\]   
+   
+   4. E para o modelo a seguir, a duas variáveis explicativas? 
+   
+\[
+\Large
+y = \beta_0 + \beta_1 \, x_1 + \beta_{11} \, x_1^2  + \beta_2 \, x_2 + \beta_{22} \, x_2^2 + \beta_{12} x_1 \, x_2 + \epsilon 
+\]
+   
+   * Este é o **modelo polinomial de segundo grau completo** para experimentos com duas variáveis quantitativas. 
+   
+   
+
+ 
+ 
+ 
+
+

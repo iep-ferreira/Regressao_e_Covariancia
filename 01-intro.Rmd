@@ -1,0 +1,45 @@
+
+
+
+# Correlação Linear
+
++ Covariância
+
+```{r}
+cov(peso, altura)
+```
+
++ Correlação Linear de Pearson ($r$)
+
+```{r}
+cor(peso, altura)
+```
+
++ Coeficiente de Determinação ($R^2$ \%)
+
+```{r}
+100*cor(peso, altura)^2
+```
++ Teste t para a correlação linear
+
+```{r}
+cor.test(peso, altura)
+```
++ Entendendo o teste
+
+```{r}
+t_cal <- 7.285 # t calculado
+n_df <- 11 # número de graus de liberdade
+t_crit_1 <- qt(0.025, df = 11)
+t_crit_2 <- qt(0.975, df = 11)
+# gráfico da distribuição de teste
+curve( dt(x, df = n_df), -10, 10, lwd = 2,
+       ylab = "Densidade t", xlab = "Valores de t" ) 
+abline( v = t_crit_1, lty = 2, col = 2, lwd = 3)
+abline( v = t_crit_2, lty = 2, col = 2, lwd = 3)
+points(t_cal, 0 , pch = 19, cex = 3)
+```
+
+
+
+

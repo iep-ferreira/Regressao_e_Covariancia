@@ -1,0 +1,61 @@
+--- 
+title: "Análise de Regressão - uma introdução"
+author: "Prof. Iuri Ferreira"
+date: "24 de fevereiro de 2022"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+description: |
+  Aulas de análise de regressão ministradas na UFSCar Lagoa do Sino
+link-citations: yes
+github-repo: rstudio/bookdown
+---
+
+```{r eval=FALSE}
+bookdown::serve_book()
+```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+# Exemplo : Estatura e Massa Corporal
+
++  Dados de peso e altura
+  
+```{r}
+peso <- c( 78, 65, 57, 89, 74, 68, 77, 95, 86, 72, 63, 85, 69 )
+altura <- c( 1.64, 1.65, 1.56, 1.87, 1.63, 1.70, 1.72, 
+             1.88, 1.75, 1.67, 1.59, 1.80, 1.64)
+df <- data.frame(peso, altura)
+head(df)
+```
+
++ Diagrama de dispersão 
+
+```{r}
+plot(peso, altura, xlab = "Massa corpórea (kg)", ylab = "Estatura (m)", 
+     cex.lab=1.3)
+```
+
++ Questões:  
+
+  - A relação é aproximadamente linear? 
+  
+  - A relação é positiva ou negativa? 
+  
+  - A relação é forte ou fraca? 
+  
+  - Existem outliers? 
+
+# Covariância e Correlação
+
+Aspectos teóricos na aula abaixo: 
+
+```{r, echo = FALSE}
+knitr::include_app("https://iuriferreira.shinyapps.io/cov_cor_and_line_regression/", height = "600px") 
+```
+

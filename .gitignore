@@ -37,3 +37,9 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# R bokdown files
+_boockdown_files
+
+
+

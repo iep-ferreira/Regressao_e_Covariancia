@@ -1,0 +1,94 @@
+# Prática Computacional
+
+## Ajuste de reta
+
+  + Os dados do exemplo 1 já estão gravados na memória do computador. Vamos gerar um ajuste linear: 
+
+    * O ajuste é gerado com a função `lm`, o resultado é analisado a partir do comando `summary` e o gráfico é plotado com os comandos `plot` e `coef`, que nos dá os coeficientes do modelo ajustado. 
+ 
+```{r} 
+nosso_ajuste <- lm(altura ~ peso) 
+summary(nosso_ajuste)
+```
+```{r}
+plot(peso, altura, xlab = "Massa corpórea (kg)", ylab = "Estatura (m)", cex.lab=1.3)
+abline(coef(nosso_ajuste), col = 2, lwd = 3, lty = 2)
+```
+
+ + Mas este comando corresponde à qual equação? Usamos o pacote `equatiomatic` para saber a equação!
+
+```{r}
+# Install.packages("equatiomatic")
+library(equatiomatic)
+extract_eq(nosso_ajuste)
+```
+
+  + Ok! Mas como obter os valores preditos a partir da fórmula? 
+  
+```{r}
+extract_eq(nosso_ajuste, wrap = TRUE, use_coefs = TRUE)
+```
+
+  + E vocês sabiam que dá para fazer ANOVA para o ajuste de curvas?  
+
+```{r}
+anova(nosso_ajuste)
+```
+
+  + E será que o ajuste ficou bom? Vamos olhar para o coeficiente de determinação. 
+
+```{r}
+summary( nosso_ajuste )$r.squared
+```
+  * Ok! A variável `massa corporal` explica 82,8\% da variação observada na variável `estatura`. 
+
+  + Será que os pontos são "bem explicados" pela reta. Vamos olhar os resíduos. 
+
+   * Independência e tendências não capturadas pelo modelo
+
+```{r}
+plot(fitted(nosso_ajuste), rstandard(nosso_ajuste), 
+     ylab = "Resíduos padronizados", xlab = "Valores ajustados", ylim = c(-4, 4)) + abline(h = 0, lty =2)
+```
+
+   * Gráfico Quantil-Quantil
+   
+```{r}
+# install.packages("car")
+library(car)
+qqPlot(nosso_ajuste)
+```
+
+## Ajuste não-linear
+
+ + Nesse caso, o comando `lm` já não funciona mais. Vou explicar melhor adiante!
+ 
+ + Vamos usar o procedimento iterativo (Gauss-Newton) de estimação do pacote `nls`
+ 
+```{r}
+michaelis_fit <- nls( y ~ a*x / (b + x) , data = df2, 
+                 start = list(a = 4, b = 4) )
+```
+ 
+  * Nesse caso, `a` e `b` são valores desconhecidos - parâmetros
+  
+  * Foi necessário chutar valores iniciais para obter o ajuste
+  
+  * O resumo do ajuste é dado por: 
+  
+```{r}
+summary( michaelis_fit ) 
+```
+
+  * O resultado do ajuste foi:
+ 
+```{r}
+plot(x, y, xlab = "Reagente", ylab = "Velocidade") 
+z <- seq(0, 16, by = 0.1) 
+y_fit <- predict(michaelis_fit, newdata = data.frame(x = z), type = "response")
+lines(z , y_fit, lwd =2, col = 2, lty = 2)
+``` 
+
+
+
+

@@ -1,0 +1,12 @@
+exemplo-estatura-e-massa-corporal
+covariância-e-correlação
+correlação-linear
+associações-não-lineares
+coeficiente-de-spearman-rho
+modelos-de-regressão
+modelos-lineares
+modelo-linear---forma-geral
+exercícios
+prática-computacional
+ajuste-de-reta
+ajuste-não-linear
