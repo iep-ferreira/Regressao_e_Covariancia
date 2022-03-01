@@ -35,7 +35,7 @@ head(df)
 
 + Diagrama de dispersão 
 
-```{r fig.dim=c(5,5)}
+```{r, fig1, fig.dim=c(5,5)}
 plot(peso, altura, xlab = "Massa corpórea (kg)", ylab = "Estatura (m)", 
      cex.lab=1.3)
 ```

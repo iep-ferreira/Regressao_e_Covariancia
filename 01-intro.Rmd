@@ -27,7 +27,7 @@ cor.test(peso, altura)
 ```
 + Entendendo o teste
 
-```{r}
+```{r, fig2}
 t_cal <- 7.285 # t calculado
 n_df <- 11 # número de graus de liberdade
 t_crit_1 <- qt(0.025, df = 11)

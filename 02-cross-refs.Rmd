@@ -14,7 +14,7 @@ df2 <- data.frame(x, y)
 
  + O gráfico dos resultados do experimento está dispoto a seguir
  
-```{r}
+```{r, fig3}
 plot(df2$x, df2$y, xlab = "Reagente", ylab = "Velocidade", 
      cex = 1.3, pch =19, type = "b", cex.lab =1.5) 
 ``` 

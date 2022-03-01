@@ -10,7 +10,7 @@
 nosso_ajuste <- lm(altura ~ peso) 
 summary(nosso_ajuste)
 ```
-```{r}
+```{r, fig5}
 plot(peso, altura, xlab = "Massa corpórea (kg)", ylab = "Estatura (m)", cex.lab=1.3)
 abline(coef(nosso_ajuste), col = 2, lwd = 3, lty = 2)
 ```
@@ -46,14 +46,14 @@ summary( nosso_ajuste )$r.squared
 
    * Independência e tendências não capturadas pelo modelo
 
-```{r}
+```{r, fig6}
 plot(fitted(nosso_ajuste), rstandard(nosso_ajuste), 
      ylab = "Resíduos padronizados", xlab = "Valores ajustados", ylim = c(-4, 4)) + abline(h = 0, lty =2)
 ```
 
    * Gráfico Quantil-Quantil
    
-```{r}
+```{r, fig7}
 # install.packages("car")
 library(car)
 qqPlot(nosso_ajuste)
@@ -82,7 +82,7 @@ summary( michaelis_fit )
 
   * O resultado do ajuste foi:
  
-```{r}
+```{r, fig8}
 plot(x, y, xlab = "Reagente", ylab = "Velocidade") 
 z <- seq(0, 16, by = 0.1) 
 y_fit <- predict(michaelis_fit, newdata = data.frame(x = z), type = "response")
