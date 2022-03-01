@@ -8,7 +8,6 @@ bibliography: [book.bib, packages.bib]
 description: |
   Aulas de análise de regressão ministradas na UFSCar Lagoa do Sino
 link-citations: yes
-github-repo: rstudio/bookdown
 ---
 
 ```{r eval=FALSE}
@@ -36,7 +35,7 @@ head(df)
 
 + Diagrama de dispersão 
 
-```{r}
+```{r fig.dim=c(5,5)}
 plot(peso, altura, xlab = "Massa corpórea (kg)", ylab = "Estatura (m)", 
      cex.lab=1.3)
 ```
